@@ -6,10 +6,10 @@
  */
 import java.util.Scanner;
 import java.io.File;
-import java.util.Stack;
+//import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
-import java.util.ListIterator;
+//import java.util.ListIterator;
 
 public class MyProgram {
 	public static int val = 0;
@@ -46,65 +46,108 @@ public class MyProgram {
 		Queue<Train> C = new LinkedList<Train>();
 		int cWeight =0;
 		Queue<Train> D = new LinkedList<Train>();
-		int dWeight =0;
 
 		//System.out.println(nick0.remove());
 		//System.out.println(nick0.remove());
 		//System.out.println(nick0.remove());
-		printMsg(nick0);
+		//printMsg(nick0);
 		int i=nick0.size();
 		//fix this
 		for(int e=0;e<i;e++){
 			Train jas = nick0.remove();
-			if(jas.getName().indexOf("CAR")!=-1)
+			if(jas.getName().indexOf("CAR")==0){
 				if(jas.getMiles()>700)
 					leo1.add(jas);
 				else
 					nick0.add(jas);
+			}
+			else
+				{
+					nick0.add(jas);
+				}
 		}
-		printMsg(nick0);
 		while(!leo1.isEmpty()){
 			Train kat = leo1.remove();
 			kat.setMiles(100);
 			nick0.add(kat);
 		}
-		
+
+		//printMsg(nick0);
 		while(!nick0.isEmpty()){
 			Train lim = nick0.remove();
-			if(lim.getDestination().equals("Trenton")){
-				if((aWeight+lim.getWeight()) > limitTrackA)
+			if(lim.getName().indexOf("ENG")==0){
+				if(lim.getDestination().equals("Trenton")){
+					System.out.println("\n"+lim.getName()+" leaving for Trenton with the following cars");
 					printMsg(A);
-				A.add(lim);
-				aWeight+=lim.getWeight();
-			}else if(lim.getDestination().equals("Charlotte")){
-				if((aWeight+lim.getWeight()) > limitTrackB)
+					aWeight=0;
+				}else if(lim.getDestination().equals("Charlotte")){
+					System.out.println("\n"+lim.getName()+" leaving for Charlotte with the following cars");
 					printMsg(B);
-				B.add(lim);
-				bWeight+=lim.getWeight();
-			}else if(lim.getDestination().equals("Baltimore")){
-				if((aWeight+lim.getWeight()) > limitTrackC)
+					bWeight=0;
+				}else{
+					System.out.println("\n"+lim.getName()+" leaving for Baltimore with the following cars");
 					printMsg(C);
-				C.add(lim);
-				cWeight+=lim.getWeight();
-			}else {
-				D.add(lim);
-				dWeight+=lim.getWeight();
+					cWeight=0;
+				}
+			}else{
+				if(lim.getDestination().equals("Trenton")){
+					if((aWeight+lim.getWeight()) > limitTrackA){
+						System.out.println("\nENG00000 leaving for Trenton with the following cars");
+						printMsg(A);
+						aWeight=0;
+					}
+					A.add(lim);
+					aWeight+=lim.getWeight();
+				}else if(lim.getDestination().equals("Charlotte")){
+					if((bWeight+lim.getWeight()) > limitTrackB){
+					System.out.println("\nENG00000 leaving for Charlotte with the following cars");
+					printMsg(B);
+					bWeight=0;
+					}
+					B.add(lim);
+					bWeight+=lim.getWeight();
+				}else if(lim.getDestination().equals("Baltimore")){
+					if((cWeight+lim.getWeight()) > limitTrackC){
+						System.out.println("\nENG00000 leaving for Baltimore with the following cars");
+						printMsg(C);
+						cWeight=0;
+					}
+					C.add(lim);
+					cWeight+=lim.getWeight();
+				}else {
+					D.add(lim);
+				}
 			}
-			System.out.println("e");
 		}
+
 		//System.out.println(A.remove());
-		System.out.println(aWeight);
-		System.out.println(bWeight);
-		System.out.println(cWeight);
-		printMsg(A);
-		//printMsg(B);
-		//printMsg(C);
+		//System.out.println(aWeight);
+		//System.out.println(bWeight);
+		//System.out.println(cWeight);
+		
+		while(!A.isEmpty()){
+			System.out.println("\nENG00000 leaving for Trenton with the following cars");
+			printMsg(A);
+			aWeight=0;
+		}
+		while(!B.isEmpty()){
+			System.out.println("\nENG00000 leaving for Trenton with the following cars");
+			printMsg(B);
+			bWeight=0;
+		}
+		while(!C.isEmpty()){
+			System.out.println("\nENG00000 leaving for Trenton with the following cars");
+			printMsg(C);
+			cWeight=0;
+		}
+		
 	}
 	public static void printMsg(Queue<Train> e){
+		System.out.println("");
     	while(!e.isEmpty())
     	{
-		System.out.println(e.peek().getName()+" contains "+e.peek().getProduct());
-		e.remove();
+			System.out.println(e.peek().getName()+" contains "+e.peek().getProduct());
+			e.remove();
     	}//loops through list
 	}
 }
