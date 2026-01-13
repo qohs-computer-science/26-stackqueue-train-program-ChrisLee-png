@@ -77,22 +77,22 @@ public class MyProgram {
 			Train lim = nick0.remove();
 			if(lim.getName().indexOf("ENG")==0){
 				if(lim.getDestination().equals("Trenton")){
-					System.out.println("\n"+lim.getName()+" leaving for Trenton with the following cars");
+					System.out.println("\n"+lim.getName()+" leaving for Trenton with the following cars:");
 					printMsg(A);
 					aWeight=0;
 				}else if(lim.getDestination().equals("Charlotte")){
-					System.out.println("\n"+lim.getName()+" leaving for Charlotte with the following cars");
+					System.out.println("\n"+lim.getName()+" leaving for Charlotte with the following cars:");
 					printMsg(B);
 					bWeight=0;
 				}else{
-					System.out.println("\n"+lim.getName()+" leaving for Baltimore with the following cars");
+					System.out.println("\n"+lim.getName()+" leaving for Baltimore with the following cars:");
 					printMsg(C);
 					cWeight=0;
 				}//empties track if engine if for Baltimore
 			}else{
 				if(lim.getDestination().equals("Trenton")){
 					if((aWeight+lim.getWeight()) > limitTrackA){
-						System.out.println("\nENG00000 leaving for Trenton with the following cars");
+						System.out.println("\nENG00000 leaving for Trenton with the following cars:");
 						printMsg(A);
 						aWeight=0;
 					}//checks if track A has room
@@ -100,7 +100,7 @@ public class MyProgram {
 					aWeight+=lim.getWeight();
 				}else if(lim.getDestination().equals("Charlotte")){
 					if((bWeight+lim.getWeight()) > limitTrackB){
-					System.out.println("\nENG00000 leaving for Charlotte with the following cars");
+					System.out.println("\nENG00000 leaving for Charlotte with the following cars:");
 					printMsg(B);
 					bWeight=0;
 					}//checks if track B has room
@@ -108,7 +108,7 @@ public class MyProgram {
 					bWeight+=lim.getWeight();
 				}else if(lim.getDestination().equals("Baltimore")){
 					if((cWeight+lim.getWeight()) > limitTrackC){
-						System.out.println("\nENG00000 leaving for Baltimore with the following cars");
+						System.out.println("\nENG00000 leaving for Baltimore with the following cars:");
 						printMsg(C);
 						cWeight=0;
 					}//checks if track C has room
@@ -124,24 +124,24 @@ public class MyProgram {
 		//System.out.println(aWeight);
 		//System.out.println(bWeight);
 		//System.out.println(cWeight);
-		System.out.println("\nEnd of the day:");
+		System.out.println("\nLeft over cars after program is done:");
 		while(!A.isEmpty()){
-			System.out.println("\nENG00000 leaving for Trenton with the following cars");
+			System.out.println("\nTrack A(Trenton) contains:");
 			printMsg(A);
 			aWeight=0;
 		}//empties track A
 		while(!B.isEmpty()){
-			System.out.println("\nENG00000 leaving for Charlotte with the following cars");
+			System.out.println("\nTrack B(Charlotte) contains():");
 			printMsg(B);
 			bWeight=0;
 		}//empties track B
 		while(!C.isEmpty()){
-			System.out.println("\nENG00000 leaving for Baltimore with the following cars");
+			System.out.println("\nTrack C(Baltimore) contains:");
 			printMsg(C);
 			cWeight=0;
 		}//empties track C
 		while(!D.isEmpty()){
-			System.out.println("\nENG00000 leaving for other cities with the following cars");
+			System.out.println("\nTrack D(other) contains:");
 			printMsg(D);
 		}//empties track D
 	}//end main
